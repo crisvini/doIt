@@ -15,7 +15,7 @@ include_once("./class/Componentes.php");
     <main class="m-auto overflow-hidden w-100 form-login">
         <div class="row">
             <div class="col-10 col-md-5 col-lg-3 mx-auto">
-                <span class="fs-1 text-success fw-bold">Logo</span>
+                <span class="fs-1 text-success fw-bold">Login</span>
             </div>
         </div>
         <div class="row mt-4">
@@ -29,8 +29,8 @@ include_once("./class/Componentes.php");
         <div class="row mt-2">
             <div class="col-10 col-md-5 col-lg-3 mx-auto">
                 <div class=" form-floating">
-                    <i class="fa-solid fa-eye icon-eye d-none fs-5 text-success" id="open_eye"></i>
-                    <i class="fa-solid fa-eye-slash icon-eye d-block fs-5 text-success" id="closed_eye"></i>
+                    <i class="fa-solid fa-eye icon-eye d-none fs-5 text-success" id="open_eye" onclick="escondeSenha('#closed_eye', '#open_eye', '#senha');"></i>
+                    <i class="fa-solid fa-eye-slash icon-eye d-block fs-5 text-success" id="closed_eye" onclick="mostraSenha('#closed_eye', '#open_eye', '#senha');"></i>
                     <input type="password" class="form-control" id="senha" placeholder="Senha" onchange="alertaPreenchimento('#senha', '#label_senha');">
                     <label id="label_senha" for="senha">Senha</label>
                 </div>
@@ -47,22 +47,6 @@ include_once("./class/Componentes.php");
     </main>
 
     <script>
-        // Mostra e esconde senha
-        $("#closed_eye").on('click', function() {
-            $("#closed_eye").removeClass("d-block");
-            $("#closed_eye").addClass("d-none");
-            $("#open_eye").removeClass("d-none");
-            $("#open_eye").addClass("d-block");
-            $("#senha").attr("type", "text");
-        });
-        $("#open_eye").on('click', function() {
-            $("#open_eye").removeClass("d-block");
-            $("#open_eye").addClass("d-none");
-            $("#closed_eye").removeClass("d-none");
-            $("#closed_eye").addClass("d-block");
-            $("#senha").attr("type", "password");
-        });
-
         // Valida os dados inseridos e faz login
         $("#login_btn").click(function() {
             if ($("#email").val() != "" && validacaoEmail($("#email").val()) == true && $("#senha").val() != "") {
@@ -102,27 +86,11 @@ include_once("./class/Componentes.php");
                         confirmButton: 'btn-success'
                     }
                 }).then(function() {
-                    if ($("#email").val() == "" || validacaoEmail($("#email").val()))
-                        alertaPreenchimento('#email', '#label_email');
-                    if ($("#senha").val() == "")
-                        alertaPreenchimento('#senha', '#label_senha');
+                    if ($("#email").val() == "" || validacaoEmail($("#email").val())) alertaPreenchimento('#email', '#label_email');
+                    if ($("#senha").val() == "") alertaPreenchimento('#senha', '#label_senha');
                 });
             }
-
-
         });
-
-        // Valida e-mail
-        function validacaoEmail(email) {
-            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-                if (isNaN(email.substr(email.length - 1, 1))) {
-                    return (true)
-                } else {
-                    return (false)
-                }
-            }
-            return (false)
-        }
     </script>
 </body>
 
