@@ -79,7 +79,7 @@ include_once("./class/Componentes.php");
                     },
                 }
                 $.ajax(settings).done(function(result) {
-                    if (result == true) {
+                    if (result == "Ok") {
                         Swal.fire({
                             text: 'Usuário criado com sucesso!',
                             icon: 'success',
@@ -94,7 +94,7 @@ include_once("./class/Componentes.php");
                     } else {
                         Swal.fire({
                             title: 'Ops!',
-                            text: 'Erro interno, tente novamente mais tarde',
+                            text: result,
                             icon: 'error',
                             confirmButtonText: 'Ok',
                             background: '#edece6',

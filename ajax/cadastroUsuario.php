@@ -1,12 +1,9 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
+include("../mysql/conexao.php");
 session_start();
 
-include("../mysql/conexao.php");
-
-$autenticado = false;
-
-// Busca o email e a senha no banco de dados
+// Verifica se o e-mail e telefone informados já existem
 $sql = "SELECT
             telefone,
             email
@@ -16,20 +13,27 @@ $sql = "SELECT
             email ='" . $_POST["email"] . "'
         OR
             telefone ='" . $_POST["telefone"] . "'";
-die($sql);
-var_dump(mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["telefone"]);
-die();
-if (mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["telefone"] == null && mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["email"] == null) {
-    $sql2 = "INSERT INTO
-                usuarios (nome, telefone, email, senha)
-            VALUES
-                ('" . $_POST["nome"] . "', '" . $_POST["telefone"] . "', '" . $_POST["email"] . "', md5('" . $_POST["senha"] . "'))";
-    mysqli_query($mysqli, $sql2);
-    $autenticado = true;
-    // Cria session com dados necessários
-    $_SESSION["nome"] = mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["email"];
-    $_SESSION["telefone"] = mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["nome"];
-    $_SESSION["email"] = mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["cpf"];
+$result = $mysqli->query($sql);
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        if ($row["telefone"] == $_POST["telefone"] && $row["email"] == $_POST["email"])
+            die("Telefone e e-mail já cadastrados");
+        else if ($row["telefone"] == $_POST["telefone"])
+            die("Telefone já cadastrado");
+        else if ($row["email"] == $_POST["email"])
+            die("E-mail já cadastrado");
+    }
 }
 
-echo $autenticado;
+// Insere o usuário no banco de dados
+$sql = "INSERT INTO
+            usuarios (nome, telefone, email, senha)
+        VALUES
+            ('" . $_POST["nome"] . "', '" . $_POST["telefone"] . "', '" . $_POST["email"] . "', md5('" . $_POST["senha"] . "'))";
+mysqli_query($mysqli, $sql);
+// Cria session com dados necessários
+$_SESSION["nome"] = $_POST["nome"];
+$_SESSION["telefone"] = $_POST["telefone"];
+$_SESSION["email"] = $_POST["email"];
+
+echo "Ok";
