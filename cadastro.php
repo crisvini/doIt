@@ -3,10 +3,10 @@ include_once("./includes/includes.php");
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
-    <?php Componentes::head('Login'); ?>
+    <?php Componentes::head('Cadastro'); ?>
 </head>
 
 <body class="text-center body-login overflow-hidden">

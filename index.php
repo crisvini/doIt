@@ -4,7 +4,7 @@ $_SESSION = array(); // Limpa a session
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <?php Componentes::head('Login'); ?>
@@ -14,7 +14,7 @@ $_SESSION = array(); // Limpa a session
     <main class="m-auto overflow-hidden w-100 form-login">
         <div class="row">
             <div class="col-10 col-md-5 col-lg-3 mx-auto">
-                <span class="fs-1 text-success fw-bold">Login</span>
+                <span class="fs-1 text-success fw-bold">DoIt <i class="fa-solid fa-list-check"></i></span>
             </div>
         </div>
         <div class="row mt-4">
