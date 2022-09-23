@@ -1,7 +1,6 @@
 <?php
-session_start();
+include_once("./includes/includes.php");
 $_SESSION = array(); // Limpa a session
-include_once("./class/Componentes.php");
 ?>
 
 <!DOCTYPE html>

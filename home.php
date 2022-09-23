@@ -1,6 +1,6 @@
 <?php
-session_start();
 include_once("./includes/includes.php");
+Funcoes::verificaLogin();
 ?>
 
 <!DOCTYPE html>
