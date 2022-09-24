@@ -14,7 +14,7 @@ class Componentes
                 <script src="./lib/jquery/node_modules/jquery/dist/jquery.min.js?' . time() . '"></script>
                 <script src="./lib/jqueryMask/jquery.mask.js?' . time() . '"></script>
                 <script src="./lib/swal2/node_modules/sweetalert2/dist/sweetalert2.all.min.js?' . time() . '"></script>
-                <script src="./js/functions.js?' . time() . '"></script>
+                <script src="./js/commomFunctions.js?' . time() . '"></script>
                 <!-- CSS -->
                 <link rel="stylesheet" href="./style/bootstrap5/node_modules/bootstrap/dist/css/bootstrap.min.css?' . time() . '">
                 <link rel="stylesheet" href="./style/styles.css?' . time() . '">

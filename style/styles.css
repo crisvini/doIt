@@ -67,6 +67,10 @@ html, body {
     box-shadow: 2px 2px 3px #999;
 }
 
+.green-table-row {
+    background-color: #a4e4c7;
+}
+
 @media screen and (max-width: 900px) {
     .floating-btn {
         bottom: 20px;
