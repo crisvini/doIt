@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Set-2022 às 01:28
+-- Tempo de geração: 24-Set-2022 às 06:40
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `doIt`
+-- Banco de dados: `doit`
 --
 
 -- --------------------------------------------------------
@@ -38,7 +38,7 @@ CREATE TABLE `status` (
 
 INSERT INTO `status` (`id_status`, `nome_status`) VALUES
 (1, 'Pendente'),
-(2, 'Concluído');
+(2, 'Concluída');
 
 -- --------------------------------------------------------
 
@@ -48,11 +48,19 @@ INSERT INTO `status` (`id_status`, `nome_status`) VALUES
 
 CREATE TABLE `tarefas` (
   `id_tarefa` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
   `descricao` varchar(500) NOT NULL,
   `data_criacao` datetime NOT NULL DEFAULT current_timestamp(),
-  `data_conclusao` datetime NOT NULL,
+  `data_conclusao` datetime DEFAULT NULL,
   `_id_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tarefas`
+--
+
+INSERT INTO `tarefas` (`id_tarefa`, `nome`, `descricao`, `data_criacao`, `data_conclusao`, `_id_status`) VALUES
+(1, 'CRUD', 'Criar crud de usuários', '2022-09-23 23:43:49', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -120,7 +128,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT de tabela `tarefas`
 --
 ALTER TABLE `tarefas`
-  MODIFY `id_tarefa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tarefa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
