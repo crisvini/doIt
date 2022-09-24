@@ -21,6 +21,7 @@ class Componentes
                 <link rel="stylesheet" href="./lib/swal2/node_modules/sweetalert2/dist/sweetalert2.min.css?' . time() . '">
                 <link rel="stylesheet" href="./style/fontAwesome/node_modules/@fortawesome/fontawesome-free/css/all.min.css?' . time() . '">
                 <title>DoIt > ' . $title . '</title>
+                <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
               </head>';
     }
 
