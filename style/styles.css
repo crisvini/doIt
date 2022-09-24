@@ -32,6 +32,41 @@ html, body {
     box-shadow: 0 0 0 0.25rem rgb(60 153 110 / 50%) !important;
 }
 
+.success-hover:hover {
+    color: #27ca7e !important;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.success-hover-background:hover {
+    background-color: #27ca7e !important;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
 .pointer {
     cursor: pointer;
+}
+
+.floating-btn {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #198754;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+
+.plus {
+    margin-top: 18px;
+    font-size: 25px;
+}
+
+@media screen and (max-width: 900px) {
+    .floating-btn {
+        bottom: 20px;
+        right: 20px;
+    }
 }
