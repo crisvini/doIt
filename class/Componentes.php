@@ -26,7 +26,7 @@ class Componentes
 
     public static function header()
     {
-        echo '  <nav class="navbar navbar-expand-lg bg-light">
+        echo '  <nav class="navbar navbar-expand-lg bg-light box-shadow-padrao">
                     <div class="container-fluid px-lg-4">
                         <a class="navbar-brand" href="./home.php"><span class="pointer success-hover fs-2 text-success fw-bold">DoIt <i class="fa-solid fa-list-check"></i></span></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
