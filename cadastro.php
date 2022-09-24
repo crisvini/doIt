@@ -59,13 +59,14 @@ include_once("./includes/includes.php");
 
     <script>
         $(document).ready(function() {
+            // Máscara de telefone
             $("#telefone").mask("(00) 00000-0000");
         });
 
         // Realiza o cadastro
         $("#cadastrar_btn").click(function() {
-            if ($("#nome").val() != "" && $("#telefone").val() != "" && $("#email").val() != "" && validacaoEmail($("#email").val()) == true && $("#senha").val() != "") {
-                // Faz o cadastro se os dados forem válidos
+            if ($("#nome").val() != "" && $("#telefone").val() != "" && validacaoCelular($("#telefone").val()) == true && $("#email").val() != "" && validacaoEmail($("#email").val()) == true && $("#senha").val() != "") {
+                // Faz o cadastro se os dados forem válidos e estiverem preenchidos
                 var settings = {
                     url: './ajax/cadastroUsuario.php',
                     method: 'POST',
@@ -99,8 +100,49 @@ include_once("./includes/includes.php");
                             customClass: {
                                 confirmButton: 'btn-success'
                             }
+                        }).then(function() {
+                            if (result == 'Telefone e e-mail já cadastrados') {
+                                $("#telefone").val("");
+                                alertaPreenchimento('#telefone', '#label_telefone');
+                                $("#email").val("");
+                                alertaPreenchimento('#email', '#label_email');
+                            } else if (result == 'Telefone já cadastrado') {
+                                $("#telefone").val("");
+                                alertaPreenchimento('#telefone', '#label_telefone');
+                            } else if (result == 'E-mail já cadastrado') {
+                                $("#email").val("");
+                                alertaPreenchimento('#email', '#label_email');
+                            }
                         });
                     }
+                });
+            } else if (validacaoCelular($("#telefone").val()) == false) {
+                Swal.fire({
+                    title: 'Ops!',
+                    text: 'Insira um celular válido',
+                    icon: 'error',
+                    confirmButtonText: 'Ok',
+                    background: '#edece6',
+                    customClass: {
+                        confirmButton: 'btn-success'
+                    }
+                }).then(function() {
+                    $("#telefone").val("");
+                    alertaPreenchimento('#telefone', '#label_telefone');
+                });
+            } else if (validacaoEmail($("#email").val()) == false) {
+                Swal.fire({
+                    title: 'Ops!',
+                    text: 'Insira um e-mail válido',
+                    icon: 'error',
+                    confirmButtonText: 'Ok',
+                    background: '#edece6',
+                    customClass: {
+                        confirmButton: 'btn-success'
+                    }
+                }).then(function() {
+                    $("#email").val("");
+                    alertaPreenchimento('#email', '#label_email');
                 });
             } else {
                 Swal.fire({

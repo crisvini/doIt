@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
-include("../mysql/conexao.php");
+include_once("../connection/conexao.php");
 session_start();
 
 // Verifica se o e-mail e telefone informados já existem
