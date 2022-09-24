@@ -1,4 +1,5 @@
 <?php
+// Inclusão do arquivo de includes
 include_once("./includes/includes.php");
 $_SESSION = array(); // Limpa a session
 ?>
@@ -7,7 +8,10 @@ $_SESSION = array(); // Limpa a session
 <html lang="pt-br">
 
 <head>
+    <!-- Inclusão do head -->
     <?php Componentes::head('Login'); ?>
+    <!-- Inclusão do Javascript da página -->
+    <script src="./js/index.js?<?= time(); ?>"></script>
 </head>
 
 <body class="text-center body-login overflow-hidden">
@@ -37,60 +41,13 @@ $_SESSION = array(); // Limpa a session
         </div>
         <div class="row mt-3">
             <div class="col-10 col-md-5 col-lg-3 mx-auto">
-                <button class="w-100 btn btn-lg btn-success rounded" id="login_btn">Entrar</button>
+                <button class="w-100 btn btn-lg btn-success rounded" onclick="login();">Entrar</button>
             </div>
         </div>
         <div class="row mt-3">
             <span>Não tem uma conta? <a href="./cadastro.php" class="link-success">Cadastre-se</a></span>
         </div>
     </main>
-
-    <script>
-        // Valida os dados inseridos e faz login
-        $("#login_btn").click(function() {
-            if ($("#email").val() != "" && validacaoEmail($("#email").val()) == true && $("#senha").val() != "") {
-                // Faz o login se os dados forem válidos
-                var settings = {
-                    url: './ajax/login.php',
-                    method: 'POST',
-                    data: {
-                        email: $("#email").val(),
-                        senha: $("#senha").val()
-                    },
-                }
-                $.ajax(settings).done(function(result) {
-                    if (result == true) {
-                        window.location.href = "./home.php"
-                    } else {
-                        Swal.fire({
-                            title: 'Ops!',
-                            text: 'E-mail e/ou senha inválida',
-                            icon: 'error',
-                            confirmButtonText: 'Ok',
-                            background: '#edece6',
-                            customClass: {
-                                confirmButton: 'btn-success'
-                            }
-                        });
-                    }
-                });
-            } else {
-                Swal.fire({
-                    title: 'Ops!',
-                    text: 'Insira seu e-mail e/ou senha',
-                    icon: 'error',
-                    confirmButtonText: 'Ok',
-                    background: '#edece6',
-                    customClass: {
-                        confirmButton: 'btn-success'
-                    }
-                }).then(function() {
-                    if ($("#email").val() == "" || validacaoEmail($("#email").val())) alertaPreenchimento('#email', '#label_email');
-                    if ($("#senha").val() == "") alertaPreenchimento('#senha', '#label_senha');
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>
