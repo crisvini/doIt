@@ -2,6 +2,35 @@ $(document).ready(function () {
     retornaRegistros();
 });
 
+function retornaRegistros(click = null) {
+    if (click == true) {
+        var settings = {
+            url: './ajax/retornaRegistros.php',
+            method: 'POST'
+        }
+        $.ajax(settings).done(function (result) {
+            $("table").html(result);
+            Swal.fire({
+                text: 'Registros retornados com sucesso!',
+                icon: 'success',
+                confirmButtonText: 'Ok',
+                background: '#edece6',
+                customClass: {
+                    confirmButton: 'btn-success'
+                }
+            });
+        });
+    } else {
+        var settings = {
+            url: './ajax/retornaRegistros.php',
+            method: 'POST'
+        }
+        $.ajax(settings).done(function (result) {
+            $("table").html(result);
+        });
+    }
+}
+
 function insereTarefa() {
     Swal.fire({
         title: 'Incluir nova tarefa',
@@ -75,74 +104,6 @@ function insereTarefa() {
             confirmButton: 'btn-success'
         }
     });
-}
-
-function excluirTarefa(idExclusao) {
-    Swal.fire({
-        text: 'Tem certeza que deseja apagar esta tarefa?',
-        icon: 'warning',
-        confirmButtonText: 'Sim',
-        denyButtonText: 'Não',
-        showDenyButton: true,
-        background: '#edece6',
-        customClass: {
-            confirmButton: 'btn-success'
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            var settings = {
-                url: './ajax/excluirTarefa.php',
-                method: 'POST',
-                data: {
-                    id: idExclusao.split("_")[1]
-                },
-            }
-            $.ajax(settings).done(function (result) {
-                if (result == "Ok") {
-                    Swal.fire({
-                        text: 'Tarefa excluída com sucesso!',
-                        icon: 'success',
-                        confirmButtonText: 'Ok',
-                        background: '#edece6',
-                        customClass: {
-                            confirmButton: 'btn-success'
-                        }
-                    }).then(() => {
-                        retornaRegistros();
-                    });
-                }
-            });
-        }
-    });
-}
-
-function retornaRegistros(click = null) {
-    if (click == true) {
-        var settings = {
-            url: './ajax/retornaRegistros.php',
-            method: 'POST'
-        }
-        $.ajax(settings).done(function (result) {
-            $("tbody").html(result);
-            Swal.fire({
-                text: 'Registros retornados com sucesso!',
-                icon: 'success',
-                confirmButtonText: 'Ok',
-                background: '#edece6',
-                customClass: {
-                    confirmButton: 'btn-success'
-                }
-            });
-        });
-    } else {
-        var settings = {
-            url: './ajax/retornaRegistros.php',
-            method: 'POST'
-        }
-        $.ajax(settings).done(function (result) {
-            $("tbody").html(result);
-        });
-    }
 }
 
 function editarTarefa(idEdicao) {
@@ -252,5 +213,57 @@ function editarTarefa(idEdicao) {
                 }
             });
         });
+    });
+}
+
+function erroPermissao(erro) {
+    Swal.fire({
+        title: 'Ops!',
+        text: erro,
+        icon: 'error',
+        confirmButtonText: 'Ok',
+        background: '#edece6',
+        customClass: {
+            confirmButton: 'btn-success'
+        }
+    });
+}
+
+function excluirTarefa(idExclusao) {
+    Swal.fire({
+        text: 'Tem certeza que deseja apagar esta tarefa?',
+        icon: 'warning',
+        confirmButtonText: 'Sim',
+        denyButtonText: 'Não',
+        showDenyButton: true,
+        background: '#edece6',
+        customClass: {
+            confirmButton: 'btn-success'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var settings = {
+                url: './ajax/excluirTarefa.php',
+                method: 'POST',
+                data: {
+                    id: idExclusao.split("_")[1]
+                },
+            }
+            $.ajax(settings).done(function (result) {
+                if (result == "Ok") {
+                    Swal.fire({
+                        text: 'Tarefa excluída com sucesso!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok',
+                        background: '#edece6',
+                        customClass: {
+                            confirmButton: 'btn-success'
+                        }
+                    }).then(() => {
+                        retornaRegistros();
+                    });
+                }
+            });
+        }
     });
 }

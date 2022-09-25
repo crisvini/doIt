@@ -29,7 +29,7 @@ Funcoes::verificaLogin();
                 <div class="col">
                     <span class="fw-bolder fs-3 text-success"><i class="fa-solid fa-list-check"></i>&nbsp;Tarefas</span>
                 </div>
-                <div class="col-6 text-end align-self-end">
+                <div class="col-6 text-end align-self-end" id="acoes_registros">
                     <i class="pointer success-hover fa-solid fa-rotate-right text-success fs-4 me-3 me-lg-4" onclick="retornaRegistros(true);"></i>
                     <i class="pointer success-hover fa-solid fa-file-excel text-success fs-4 me-3 me-lg-4"></i>
                     <i class="pointer success-hover fa-solid fa-file-pdf text-success fs-4"></i>
@@ -38,20 +38,6 @@ Funcoes::verificaLogin();
             <!-- Tabela com os registros -->
             <div class="table-responsive">
                 <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th class="text-success" scope="col">Nome</th>
-                            <th class="text-success" scope="col">Descrição</th>
-                            <th class="text-success" scope="col">Criação</th>
-                            <th class="text-success" scope="col">Conclusão</th>
-                            <th class="text-success" scope="col">Status</th>
-                            <th class="text-success text-center" scope="col">Editar</th>
-                            <th class="text-success text-center" scope="col">Excluir</th>
-                        </tr>
-                    </thead>
-                    <!-- Os registros são inseridos no tbody através do arquivo ./js/home.js -->
-                    <tbody>
-                    </tbody>
                 </table>
             </div>
         </div>
