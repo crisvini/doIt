@@ -3,6 +3,8 @@
 include_once("./includes/includes.php");
 // Função que verifica se o usuário está autenticado
 Funcoes::verificaLogin();
+// Função que verifica se o usuário é admin
+Funcoes::verificaAdmin();
 ?>
 
 <!DOCTYPE html>

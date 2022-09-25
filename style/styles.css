@@ -77,3 +77,9 @@ html, body {
         right: 20px;
     }
 }
+
+@media screen and (min-width: 900px) {
+    .w-lg-50 {
+        width: 50% !important;
+    }
+}

@@ -11,7 +11,8 @@ $sql = "SELECT
             nome,
             telefone,
             email,
-            senha
+            senha,
+            admin
         FROM 
             usuarios
         WHERE
@@ -24,6 +25,7 @@ if (mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["email"] != null) {
     $_SESSION["nome"] = mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["nome"];
     $_SESSION["telefone"] = mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["telefone"];
     $_SESSION["email"] = mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["email"];
+    $_SESSION["admin"] = mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["admin"];
 }
 
 echo $autenticado;

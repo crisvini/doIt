@@ -10,7 +10,7 @@ Funcoes::verificaLogin();
 
 <head>
     <!-- Inclusão do head -->
-    <?php Componentes::head('Home'); ?>
+    <?php Componentes::head('Tarefas'); ?>
     <!-- Inclusão do Javascript da página -->
     <script src="./js/tarefas.js?<?= time(); ?>"></script>
 </head>

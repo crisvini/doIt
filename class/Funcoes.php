@@ -8,4 +8,10 @@ class Funcoes
         if (!isset($_SESSION["email"]))
             header("Location: ./index.php");
     }
+
+    public static function verificaAdmin()
+    {
+        if ($_SESSION["admin"] == 0)
+            header("Location: ./home.php");
+    }
 }
