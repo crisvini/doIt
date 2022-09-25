@@ -30,12 +30,12 @@ if ($result->num_rows > 0) {
                             <td scope="col">' . $row["nome"] . '</td>
                             <td scope="col">' . $row["telefone"] . '</td>
                             <td scope="col">' . $row["email"] . '</td>
-                            <td scope="col">' . $row["permissao_visualizar"] . '</td>
-                            <td scope="col">' . $row["permissao_editar"] . '</td>
-                            <td scope="col">' . $row["permissao_cadastrar"] . '</td>
-                            <td scope="col">' . $row["permissao_excluir"] . '</td>
-                            <td scope="col">' . $row["permissao_imprimir"] . '</td>
-                            <td class="text-success text-center" scope="col"><i class="pointer success-hover fa-solid fa-pen-to-square"><i></td>
+                            <td scope="col">' . ($row["permissao_visualizar"] == 1 ? 'Sim' : 'Não') . '</td>
+                            <td scope="col">' . ($row["permissao_editar"] == 1 ? 'Sim' : 'Não') . '</td>
+                            <td scope="col">' . ($row["permissao_cadastrar"] == 1 ? 'Sim' : 'Não') . '</td>
+                            <td scope="col">' . ($row["permissao_excluir"] == 1 ? 'Sim' : 'Não') . '</td>
+                            <td scope="col">' . ($row["permissao_imprimir"] == 1 ? 'Sim' : 'Não') . '</td>
+                            <td class="text-success text-center" scope="col"><i class="pointer success-hover fa-solid fa-pen-to-square" id="excluir_' . $row["id_usuarios"] . '" onclick="editarPermissoesUsuarios($(this).attr(' . "'id'" . '))"><i></td>
                             <td class="text-success text-center" scope="col"><i class="pointer success-hover fa-solid fa-trash" id="excluir_' . $row["id_usuarios"] . '" onclick="excluirUsuario($(this).attr(' . "'id'" . '))"><i></td>
                         </tr>';
     }

@@ -27,15 +27,14 @@ Funcoes::verificaLogin();
             <!-- Header tabela -->
             <div class="row mt-2 mb-4">
                 <div class="col">
-                    <span class="fw-bolder fs-3 text-success"><i class="fa-solid fa-list-check"></i>&nbsp;Tarefas</span>
+                    <span class="fw-bolder fs-3 text-success"><i class="fa-solid fa-user"></i>&nbsp;Usuários</span>
                 </div>
-                <!-- As ações(atualizar retorno de registros e imprimir relatório) são retornadas através da função na home.js -->
-                <div class="col-6 text-end align-self-end" id="acoes_registros">
+                <div class="col-6 text-end align-self-end">
+                    <i class="pointer success-hover fa-solid fa-rotate-right text-success fs-4 me-3 me-lg-4" onclick="retornaUsuarios(true);"></i>
                 </div>
             </div>
             <!-- Tabela com os registros -->
             <div class="table-responsive">
-                <!-- As tarefas são retornadas através da função retornaRegistros na home.js -->
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -52,13 +51,11 @@ Funcoes::verificaLogin();
                             <th class="text-success text-center" scope="col">Excluir Usuário</th>
                         </tr>
                     </thead>
+                    <!-- Os usuários são retornadas através da função retornaUsuarios na usuarios.js -->
                     <tbody>
                     </tbody>
                 </table>
             </div>
-        </div>
-        <!-- Floating Button (incluir nova tarefa) -->
-        <div id="div_floating_button">
         </div>
     </main>
 </body>
