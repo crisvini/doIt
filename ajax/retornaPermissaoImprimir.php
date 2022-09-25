@@ -15,8 +15,8 @@ if (mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["permissao_visualizar"] == 1
     $htmlAcoes = '<i class="pointer success-hover fa-solid fa-rotate-right text-success fs-4 me-3 me-lg-4" onclick="retornaRegistros(true);retornaAcoesRegistros();"></i>';
     // Se o usuário tiver permissão de impressão, retorna o botão de retorno de tarefas, excel e pdf
     if (mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["permissao_imprimir"] == 1) {
-        $htmlAcoes .= ' <i class="pointer success-hover fa-solid fa-file-excel text-success fs-4 me-3 me-lg-4"></i>
-                        <i class="pointer success-hover fa-solid fa-file-pdf text-success fs-4"></i>';
+        $htmlAcoes .= ' <i class="pointer success-hover fa-solid fa-file-excel text-success fs-4 me-3 me-lg-4" onclick="baixarExcel()"></i>
+                        <i class="pointer success-hover fa-solid fa-file-pdf text-success fs-4" onclick="baixarPdf()"></i>';
     }
     echo $htmlAcoes;
 }

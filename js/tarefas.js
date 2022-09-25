@@ -306,3 +306,13 @@ function excluirTarefa(idExclusao) {
         }
     });
 }
+
+// Baixa o relatório de tarefas em formato .xls
+function baixarExcel() {
+    window.location.href = "./ajax/relatorioTarefasExcel.php";
+}
+
+// Baixa o relatório de tarefas em formato .pdf
+function baixarPdf() {
+    window.open("./ajax/relatorioTarefasPdf.php");
+}

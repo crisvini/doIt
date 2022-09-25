@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Set-2022 às 08:08
+-- Tempo de geração: 25-Set-2022 às 23:24
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -60,7 +60,8 @@ CREATE TABLE `tarefas` (
 --
 
 INSERT INTO `tarefas` (`id_tarefa`, `nome`, `descricao`, `data_criacao`, `data_conclusao`, `_id_status`) VALUES
-(1, 'CRUD', 'Criar crud de usuários', '2022-09-23 23:43:49', NULL, 1);
+(1, 'CRUD', 'Criar crud de usuários', '2022-09-23 23:43:49', '2022-09-25 11:32:36', 2),
+(12, 'Teste', 'teste', '2022-09-25 11:36:05', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuarios`, `nome`, `telefone`, `email`, `senha`, `permissao_visualizar`, `permissao_editar`, `permissao_cadastrar`, `permissao_excluir`, `permissao_imprimir`, `admin`) VALUES
-(1, 'Cristian', '(16) 99436-9764', 'crisvini.leoncini@outlook.com', '01c28a3b53576f31689ea49e2bc0bcec', 0, 0, 0, 0, 0, 1);
+(1, 'Cristian', '(16) 99436-9764', 'crisvini.leoncini@outlook.com', '01c28a3b53576f31689ea49e2bc0bcec', 1, 1, 1, 1, 1, 1),
+(13, 'Cristiano Lopes', '(16) 99154-2962', 'cldsilva@gmail.com', '01c28a3b53576f31689ea49e2bc0bcec', 1, 1, 1, 1, 1, 0);
 
 --
 -- Índices para tabelas despejadas
@@ -128,13 +130,13 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT de tabela `tarefas`
 --
 ALTER TABLE `tarefas`
-  MODIFY `id_tarefa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_tarefa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restrições para despejos de tabelas
