@@ -1,8 +1,10 @@
 <?php
 
+// Classe com componentes para agilizar no desenvolvimento
 class Componentes
 {
 
+    // Componente de head
     public static function head($title)
     {
         echo '<head>
@@ -25,6 +27,7 @@ class Componentes
               </head>';
     }
 
+    // Componente de header
     public static function header()
     {
         include_once("./connection/conexao.php");
@@ -34,6 +37,7 @@ class Componentes
                     usuarios
                 WHERE
                     email = '" . $_SESSION["email"] . "'";
+        // Se o perfil do usuário for de admin, exibe o navlink para a tela de usuários
         if (mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["admin"] == 1) {
             $navLinks = '<li class="nav-item">
                             <a class="nav-link text-success fs-6 fw-bolder success-hover" href="./home.php">Home</a>

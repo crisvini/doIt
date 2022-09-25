@@ -1,5 +1,6 @@
 <?php
 
+// Classe de funções comuns entre diversas páginas
 class Funcoes
 {
     public static function verificaLogin()
