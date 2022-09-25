@@ -1,5 +1,7 @@
 $(document).ready(function () {
+    retornaAcoesRegistros();
     retornaRegistros();
+    retornaFloatingButton();
 });
 
 function retornaRegistros(click = null) {
@@ -29,6 +31,26 @@ function retornaRegistros(click = null) {
             $("table").html(result);
         });
     }
+}
+
+function retornaAcoesRegistros() {
+    var settings = {
+        url: './ajax/retornaPermissaoImprimir.php',
+        method: 'POST'
+    }
+    $.ajax(settings).done(function (result) {
+        $("#acoes_registros").html(result);
+    });
+}
+
+function retornaFloatingButton() {
+    var settings = {
+        url: './ajax/retornaPermissaoCadastrar.php',
+        method: 'POST'
+    }
+    $.ajax(settings).done(function (result) {
+        $("#div_floating_button").html(result);
+    });
 }
 
 function insereTarefa() {

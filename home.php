@@ -29,21 +29,19 @@ Funcoes::verificaLogin();
                 <div class="col">
                     <span class="fw-bolder fs-3 text-success"><i class="fa-solid fa-list-check"></i>&nbsp;Tarefas</span>
                 </div>
+                <!-- As ações(atualizar retorno de registros e imprimir relatório) são retornadas através da função na home.js -->
                 <div class="col-6 text-end align-self-end" id="acoes_registros">
-                    <i class="pointer success-hover fa-solid fa-rotate-right text-success fs-4 me-3 me-lg-4" onclick="retornaRegistros(true);"></i>
-                    <i class="pointer success-hover fa-solid fa-file-excel text-success fs-4 me-3 me-lg-4"></i>
-                    <i class="pointer success-hover fa-solid fa-file-pdf text-success fs-4"></i>
                 </div>
             </div>
             <!-- Tabela com os registros -->
             <div class="table-responsive">
+                <!-- As tarefas são retornadas através da função retornaRegistros na home.js -->
                 <table class="table table-hover">
                 </table>
             </div>
         </div>
         <!-- Floating Button (incluir nova tarefa) -->
-        <div class="floating-btn pointer success-hover-background box-shadow-padrao" onclick="insereTarefa();">
-            <i class="fa fa-plus plus"></i>
+        <div id="div_floating_button">
         </div>
     </main>
 </body>
