@@ -2,6 +2,7 @@
 // Inclusão do arquivo de conexão
 include("../connection/conexao.php");
 
+// Atualiza a tarefa 
 $sql = "UPDATE
             tarefas
         SET

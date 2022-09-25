@@ -3,6 +3,7 @@ session_start();
 // Inclusão do arquivo de conexão
 include("../connection/conexao.php");
 
+// Seleciona algumas permissões do usuário para definir o que será exibido para o mesmo
 $sql = "SELECT
             permissao_visualizar,
             permissao_editar,
@@ -11,9 +12,12 @@ $sql = "SELECT
             usuarios
         WHERE
             email ='" . $_SESSION["email"] . "'";
+// Se o usuário tiver permissão de visualização, exibe o código abaixo
 if (mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["permissao_visualizar"] == 1) {
+    // Define o onClick dos botões de edição e exclusão, com base nas permissões do usuário
     mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["permissao_editar"] == 1 ? $permissao_editar = '" onclick="editarTarefa($(this).attr(' . "'id'" . '))"' : $permissao_editar = '" onclick="erroPermissao(' . "'Você não possui permissão para editar tarefas, contate um administrador para mais informações'" . ')"';
     mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["permissao_excluir"] == 1 ? $permissao_excluir = '" onclick="excluirTarefa($(this).attr(' . "'id'" . '))"' : $permissao_excluir = '" onclick="erroPermissao(' . "'Você não possui permissão para excluir tarefas, contate um administrador para mais informações'" . ')"';
+    // Inicialização da variável $htmlTabela
     $htmlTabela = ' <thead>
                         <tr>
                             <th class="text-success" scope="col">Nome</th>
@@ -39,6 +43,7 @@ if (mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["permissao_visualizar"] == 1
         JOIN
             status ON tarefas._id_status = status.id_status";
     $result = $mysqli->query($sql);
+    // Se existir um registro, executa o código abaixo 
     if ($result->num_rows > 0) {
         // Enquanto existirem registros, incrementa o html da tabela de tarefas
         while ($row = $result->fetch_assoc()) {
@@ -56,10 +61,12 @@ if (mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["permissao_visualizar"] == 1
                             </tr>';
         }
     } else
+        // Se não existirem tarefas, executa o código abaixo
         $htmlTabela = '<tr><th class="text-center scope="row" colspan="7"><span>Nenhuma tarefa encontrada</span></th></tr>';
 
     echo $htmlTabela . '</tbody>';
 } else {
+    // Se o usuário não tiver permissão de visualização, exibe o código abaixo
     $htmlTabela = '<thead>
                         <tr>
                             <th class="text-success" scope="col">Nome</th>

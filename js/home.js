@@ -4,10 +4,12 @@ $(document).ready(function () {
     retornaFloatingButton();
 });
 
+// Retorna as tarefas
 function retornaRegistros(click = null) {
+    // Se o click (parâmetro) for verdadeiro, retorna as tarefas e um swal positivo
     if (click == true) {
         var settings = {
-            url: './ajax/retornaRegistros.php',
+            url: './ajax/retornaTarefas.php',
             method: 'POST'
         }
         $.ajax(settings).done(function (result) {
@@ -23,8 +25,9 @@ function retornaRegistros(click = null) {
             });
         });
     } else {
+        // Caso contrário, retorna somente as tarefas 
         var settings = {
-            url: './ajax/retornaRegistros.php',
+            url: './ajax/retornaTarefas.php',
             method: 'POST'
         }
         $.ajax(settings).done(function (result) {
@@ -33,6 +36,7 @@ function retornaRegistros(click = null) {
     }
 }
 
+// Retorna os botões de ação da tabela (botão de baixar excel, baixar pdf e recarregar registros)
 function retornaAcoesRegistros() {
     var settings = {
         url: './ajax/retornaPermissaoImprimir.php',
@@ -43,6 +47,7 @@ function retornaAcoesRegistros() {
     });
 }
 
+// Retorna o botão de inserção de tarefas
 function retornaFloatingButton() {
     var settings = {
         url: './ajax/retornaPermissaoCadastrar.php',
@@ -53,6 +58,7 @@ function retornaFloatingButton() {
     });
 }
 
+// Insere uma nova tarefa
 function insereTarefa() {
     Swal.fire({
         title: 'Incluir nova tarefa',
@@ -74,6 +80,7 @@ function insereTarefa() {
             ' </div>' +
             '</div>',
         preConfirm: () => {
+            // Verifica o preenchimento correto dos dados
             if ($("#nomeTarefa").val() == "" && $("#descricaoTarefa").val() == "") {
                 alertaPreenchimento("#nomeTarefa", "#label_nomeTarefa");
                 alertaPreenchimento("#descricaoTarefa", "#label_descricaoTarefa");
@@ -85,6 +92,7 @@ function insereTarefa() {
                 alertaPreenchimento("#descricaoTarefa", "#label_descricaoTarefa");
                 return false;
             } else {
+                // Se os dados tiverem sido digitados corretamente, insere a nova tarefa 
                 var settings = {
                     url: './ajax/insereTarefa.php',
                     method: 'POST',
@@ -94,6 +102,7 @@ function insereTarefa() {
                     },
                 }
                 $.ajax(settings).done(function (result) {
+                    // Se a tarefa for inserida com sucesso, retorna os registros novamente
                     if (result == 'Ok') {
                         Swal.fire({
                             text: 'Tarefa inclusa com sucesso!',
@@ -128,7 +137,9 @@ function insereTarefa() {
     });
 }
 
+// Edita tarefa
 function editarTarefa(idEdicao) {
+    // Busca os dados da tarefa
     var settings = {
         url: './ajax/retornaDadosTarefa.php',
         method: 'POST',
@@ -139,6 +150,7 @@ function editarTarefa(idEdicao) {
     $.ajax(settings).done(function (result) {
         var dadosTarefa = result;
         var status;
+        // Busca o status da tarefa
         var settings = {
             url: './ajax/retornaStatus.php',
             method: 'POST',
@@ -191,6 +203,7 @@ function editarTarefa(idEdicao) {
                         alertaPreenchimento("#status", "#label_status");
                         return false;
                     } else {
+                        // Atualiza a tarefa
                         var settings = {
                             url: './ajax/editarTarefa.php',
                             method: 'POST',
@@ -212,6 +225,7 @@ function editarTarefa(idEdicao) {
                                         confirmButton: 'btn-success'
                                     }
                                 }).then(() => {
+                                    // Retorna os registros novamente
                                     retornaRegistros();
                                 });
                             } else {
@@ -238,6 +252,7 @@ function editarTarefa(idEdicao) {
     });
 }
 
+// Função que exibe um swal de erro
 function erroPermissao(erro) {
     Swal.fire({
         title: 'Ops!',
@@ -251,6 +266,7 @@ function erroPermissao(erro) {
     });
 }
 
+// Exclui tarefas
 function excluirTarefa(idExclusao) {
     Swal.fire({
         text: 'Tem certeza que deseja apagar esta tarefa?',
@@ -264,6 +280,7 @@ function excluirTarefa(idExclusao) {
         }
     }).then((result) => {
         if (result.isConfirmed) {
+            // Apaga a tarefa selecionada
             var settings = {
                 url: './ajax/excluirTarefa.php',
                 method: 'POST',

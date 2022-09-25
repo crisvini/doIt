@@ -2,6 +2,7 @@
 // Inclusão do arquivo de conexão
 include("../connection/conexao.php");
 
+// Seleciona o status da tarefa
 $sql = "SELECT
            tarefas.nome as nome,
            tarefas.descricao as descricao,
@@ -14,6 +15,7 @@ $sql = "SELECT
         WHERE
             id_tarefa = " . (int) $_POST["id"];
 $statusTarefa =  mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["nome_status"];
+// Variável que gera a option
 $htmlStatus = '<option value="' . mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["id_status"] . '" selected>' . mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["nome_status"] . '</option>';
 
 $sql = "SELECT

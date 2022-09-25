@@ -2,7 +2,9 @@ $(document).ready(function () {
     retornaUsuarios();
 });
 
+// Retorna os usuários
 function retornaUsuarios(click = null) {
+    // Se o parâmetro click for true, executa o retorno de usuários e exibe um swal
     if (click == true) {
         var settings = {
             url: './ajax/retornaUsuarios.php',
@@ -21,6 +23,7 @@ function retornaUsuarios(click = null) {
             });
         });
     } else {
+        // Caso contrário, somente executa o retorno de usuários
         var settings = {
             url: './ajax/retornaUsuarios.php',
             method: 'POST'
@@ -31,6 +34,7 @@ function retornaUsuarios(click = null) {
     }
 }
 
+// Exclui usuário
 function excluirUsuario(idExclusao) {
     Swal.fire({
         text: 'Tem certeza que deseja excluir este usuário?',
@@ -44,6 +48,7 @@ function excluirUsuario(idExclusao) {
         }
     }).then((result) => {
         if (result.isConfirmed) {
+            // Apaga o usuário
             var settings = {
                 url: './ajax/excluirUsuario.php',
                 method: 'POST',
@@ -70,6 +75,7 @@ function excluirUsuario(idExclusao) {
     });
 }
 
+// Editar as permissões do usuário
 function editarPermissoesUsuarios(idUsuario) {
     var settings = {
         url: './ajax/retornaDadosUsuario.php',
@@ -173,6 +179,5 @@ function editarPermissoesUsuarios(idUsuario) {
                 confirmButton: 'btn-success'
             }
         });
-        // });
     });
 }

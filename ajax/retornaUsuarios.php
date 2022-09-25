@@ -3,6 +3,7 @@ session_start();
 // Inclusão do arquivo de conexão
 include("../connection/conexao.php");
 
+// Seleciona as permissões do usuário
 $htmlTabela = '';
 $sql = "SELECT
             id_usuarios,
@@ -25,6 +26,7 @@ $result = $mysqli->query($sql);
 if ($result->num_rows > 0) {
     // Enquanto existirem registros, incrementa o html da tabela de usuários
     while ($row = $result->fetch_assoc()) {
+        // Gera a tabela com as permissões
         $htmlTabela .= ' <tr>
                             <th scope="col">' . $row["id_usuarios"] . '</th>
                             <td scope="col">' . $row["nome"] . '</td>

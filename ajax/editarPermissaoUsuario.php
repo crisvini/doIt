@@ -2,6 +2,7 @@
 // Inclusão do arquivo de conexão
 include("../connection/conexao.php");
 
+// Atualiza as permissões do usuário
 $sql = "UPDATE
             usuarios
         SET

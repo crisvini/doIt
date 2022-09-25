@@ -13,6 +13,7 @@ $sql = "SELECT
             usuarios
         WHERE
             id_usuarios = " . (int) $_POST["id"];
+// Codifica os options em json
 echo json_encode([
     "permissao_visualizar" => '<option value="' . mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["permissao_visualizar"] . '" selected>' . (mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["permissao_visualizar"] == 1 ? 'Sim' : 'Não') . '</option>' .
         '<option value="' . (mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["permissao_visualizar"] == 1 ? 0 : 1) . '">' . (mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["permissao_visualizar"] == 1 ? 'Não' : 'Sim') . '</option>',

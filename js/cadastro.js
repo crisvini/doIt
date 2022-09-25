@@ -3,6 +3,7 @@ $(document).ready(function () {
     $("#telefone").mask("(00) 00000-0000");
 });
 
+// Cadasta novo usuário
 function cadastrarUsuario() {
     if ($("#nome").val() != "" && $("#telefone").val() != "" && validacaoCelular($("#telefone").val()) == true && $("#email").val() != "" && validacaoEmail($("#email").val()) == true && $("#senha").val() != "") {
         // Faz o cadastro se os dados forem válidos e estiverem preenchidos
@@ -55,6 +56,7 @@ function cadastrarUsuario() {
                 });
             }
         });
+        // Valida o celular
     } else if (validacaoCelular($("#telefone").val()) == false) {
         Swal.fire({
             title: 'Ops!',
@@ -69,6 +71,7 @@ function cadastrarUsuario() {
             $("#telefone").val("");
             alertaPreenchimento('#telefone', '#label_telefone');
         });
+        // Valida o e-mail
     } else if (validacaoEmail($("#email").val()) == false) {
         Swal.fire({
             title: 'Ops!',

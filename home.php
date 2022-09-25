@@ -29,7 +29,7 @@ Funcoes::verificaLogin();
                 <div class="col">
                     <span class="fw-bolder fs-3 text-success"><i class="fa-solid fa-list-check"></i>&nbsp;Tarefas</span>
                 </div>
-                <!-- As ações(atualizar retorno de registros e imprimir relatório) são retornadas através da função na home.js -->
+                <!-- As ações (atualizar retorno de registros e imprimir relatório) são retornadas através da função na home.js -->
                 <div class="col-6 text-end align-self-end" id="acoes_registros">
                 </div>
             </div>
@@ -40,7 +40,7 @@ Funcoes::verificaLogin();
                 </table>
             </div>
         </div>
-        <!-- Floating Button (incluir nova tarefa) -->
+        <!-- Floating Button (incluir nova tarefa) é retornado através da função retornaFloatingButton na home.js -->
         <div id="div_floating_button">
         </div>
     </main>
