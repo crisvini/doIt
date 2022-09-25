@@ -28,7 +28,7 @@ function cadastrarUsuario() {
                         confirmButton: 'btn-success'
                     }
                 }).then(function () {
-                    window.location.href = "./home.php";
+                    window.location.href = "./tarefas.php";
                 });
             } else {
                 Swal.fire({

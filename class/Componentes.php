@@ -40,19 +40,19 @@ class Componentes
         // Se o perfil do usuário for de admin, exibe o navlink para a tela de usuários
         if (mysqli_fetch_assoc(mysqli_query($mysqli, $sql))["admin"] == 1) {
             $navLinks = '<li class="nav-item">
-                            <a class="nav-link text-success fs-6 fw-bolder success-hover" href="./home.php">Home</a>
+                            <a class="nav-link text-success fs-6 fw-bolder success-hover" href="./tarefas.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-success fs-6 fw-bolder success-hover" href="./usuarios.php">Usuários</a>
                         </li>';
         } else {
             $navLinks = '<li class="nav-item">
-                            <a class="nav-link text-success fs-6 fw-bolder success-hover" href="./home.php">Home</a>
+                            <a class="nav-link text-success fs-6 fw-bolder success-hover" href="./tarefas.php">Home</a>
                         </li>';
         }
         echo '  <nav class="navbar navbar-expand-lg bg-light box-shadow-padrao">
                     <div class="container-fluid px-lg-4">
-                        <a class="navbar-brand" href="./home.php"><span class="pointer success-hover fs-2 text-success fw-bold">DoIt <i class="fa-solid fa-list-check"></i></span></a>
+                        <a class="navbar-brand" href="./tarefas.php"><span class="pointer success-hover fs-2 text-success fw-bold">DoIt <i class="fa-solid fa-list-check"></i></span></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                             <i class="navbar-toggler-icon fa-solid fa-bars h-100 fs-2 text-success"></i>
                         </button>

@@ -12,7 +12,7 @@ Funcoes::verificaLogin();
     <!-- Inclusão do head -->
     <?php Componentes::head('Home'); ?>
     <!-- Inclusão do Javascript da página -->
-    <script src="./js/home.js?<?= time(); ?>"></script>
+    <script src="./js/tarefas.js?<?= time(); ?>"></script>
 </head>
 
 <body>
@@ -29,18 +29,18 @@ Funcoes::verificaLogin();
                 <div class="col">
                     <span class="fw-bolder fs-3 text-success"><i class="fa-solid fa-list-check"></i>&nbsp;Tarefas</span>
                 </div>
-                <!-- As ações (atualizar retorno de registros e imprimir relatório) são retornadas através da função na home.js -->
+                <!-- As ações (atualizar retorno de registros e imprimir relatório) são retornadas através da função na tarefas.js -->
                 <div class="col-6 text-end align-self-end" id="acoes_registros">
                 </div>
             </div>
             <!-- Tabela com os registros -->
             <div class="table-responsive">
-                <!-- As tarefas são retornadas através da função retornaRegistros na home.js -->
+                <!-- As tarefas são retornadas através da função retornaRegistros na tarefas.js -->
                 <table class="table table-hover">
                 </table>
             </div>
         </div>
-        <!-- Floating Button (incluir nova tarefa) é retornado através da função retornaFloatingButton na home.js -->
+        <!-- Floating Button (incluir nova tarefa) é retornado através da função retornaFloatingButton na tarefas.js -->
         <div id="div_floating_button">
         </div>
     </main>

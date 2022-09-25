@@ -88,7 +88,7 @@ function editarPermissoesUsuarios(idUsuario) {
         var dadosUsuario = result;
         console.log(dadosUsuario);
         Swal.fire({
-            title: 'Atualizar tarefa',
+            title: 'Atualizar permissões',
             confirmButtonText: 'Atualizar',
             showCancelButton: true,
             cancelButtonText: 'Cancelar',
