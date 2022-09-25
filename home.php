@@ -27,9 +27,8 @@ Funcoes::verificaLogin();
             <div class="col-12 col-lg-6">
                 <img src="./assets/Task-cuate.svg">
             </div>
+            <!-- Os botões são retornados da função retornaBotoes no arquivo home.js -->
             <div class="col-12 col-lg-6 m-auto" id="home_buttons">
-                <!-- <a href="./tarefas.php"><button class="mt-3 mt-lg-0 w-100 w-lg-50 btn btn-lg btn-success rounded"><i class="fa-solid fa-list-check"></i> Tarefas</button></a>
-                <a href="./usuarios.php"><button class="mt-3 w-100 w-lg-50 btn btn-lg btn-success rounded"><i class="fa-solid fa-user"></i> Usuários</button></a> -->
             </div>
         </div>
     </main>

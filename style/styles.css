@@ -32,6 +32,12 @@ html, body {
     box-shadow: 0 0 0 0.25rem rgb(60 153 110 / 50%) !important;
 }
 
+.btn-success:hover {
+    background-color: #27ca7e !important;
+    border-color: #27ca7e !important;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
 .success-hover:hover {
     color: #27ca7e !important;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;

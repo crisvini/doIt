@@ -45,7 +45,7 @@ $_SESSION = array(); // Limpa a session
             </div>
         </div>
         <div class="row mt-3">
-            <span>Não tem uma conta? <a href="./cadastro.php" class="link-success">Cadastre-se</a></span>
+            <span>Não tem uma conta? <a href="./cadastro.php" class="link-success success-hover">Cadastre-se</a></span>
         </div>
     </main>
 </body>

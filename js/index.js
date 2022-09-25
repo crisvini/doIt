@@ -12,7 +12,7 @@ function login() {
         }
         $.ajax(settings).done(function (result) {
             if (result == true) {
-                window.location.href = "./tarefas.php"
+                window.location.href = "./home.php"
             } else {
                 Swal.fire({
                     title: 'Ops!',
